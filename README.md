@@ -29,6 +29,26 @@ javah JniTest.java ---> com_jiangwei_ JniTest.h
 	/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/include/jni.h:45:10: fatal error: 
       'jni_md.h' file not found #include "jni_md.h"
       
+## java实现
+
+	package com.jiangwei;
+	
+	public class JniTest {
+		static String name = "a";
+	
+		public native static String getStringFromC();
+	
+		static {
+			System.loadLibrary("from_c_jni");
+		}
+	
+		public static void main(String[] args) {
+			JniTest t = new JniTest();
+			System.out.println(t.getStringFromC());
+		}
+	}
+
+      
       
 
 
